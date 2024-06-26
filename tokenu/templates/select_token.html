@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Token</title>
+</head>
+<body>
+    <h1>Select Token</h1>
+    <ul>
+        {% for token in tokens %}
+        <li>
+            <strong>Blockchain:</strong> {{ token.blockchain }} <br>
+            <strong>Token Address:</strong> {{ token.token_address }} <br>
+            <strong>File Name:</strong> {{ token.file_name }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
