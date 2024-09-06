@@ -85,7 +85,7 @@ El frontend está basado en formularios HTML básicos. No requiere un entorno de
 El proyecto incluye contratos inteligentes que deben ser desplegados en **Ethereum Sepolia** y **Polygon Mumbai** a través de **Remix**. Sigue estos pasos:
 
 1. Accede a **Remix IDE**: [Remix](https://remix.ethereum.org/)
-2. Carga el contrato en Remix y compílalo.
+2. Carga el contrato tokenu.sol en Remix y compílalo.
 3. Conecta tu wallet MetaMask a la red **Sepolia** o **Mumbai** y despliega el contrato.
 4. Copia la dirección del contrato y actualiza las variables de entorno del proyecto en `.env`.
 
