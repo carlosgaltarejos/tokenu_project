@@ -153,9 +153,10 @@ POLYGON_CONTRACT_ADDRESS = os.getenv('POLYGON_CONTRACT_ADDRESS')
 ACCOUNT_ADDRESS = os.getenv('ACCOUNT_ADDRESS')
 PRIVATE_KEY = os.getenv('PRIVATE_KEY')
 
-# ABI del contrato
-# ETHEREUM_CONTRACT_ABI = json.loads(os.getenv('ETHEREUM_CONTRACT_ABI'))
-POLYGON_CONTRACT_ABI = os.getenv('POLYGON_CONTRACT_ABI')
+POLYGON_CONTRACT_ABI_PATH = os.getenv("POLYGON_CONTRACT_ABI_PATH")
+# Cargar el ABI del contrato desde el archivo JSON
+with open(os.path.join(BASE_DIR, POLYGON_CONTRACT_ABI_PATH), 'r') as abi_file:
+    POLYGON_CONTRACT_ABI = json.load(abi_file)
 
 ETHEREUM_CONTRACT_ABI_PATH = os.getenv("ETHEREUM_CONTRACT_ABI_PATH")
 # Cargar el ABI del contrato desde el archivo JSON

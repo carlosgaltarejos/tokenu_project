@@ -1,17 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>View Token</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Token</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .input-group-text { cursor: pointer; }
+    </style>
 </head>
 <body>
-    <h1>View Token</h1>
-    <form action="{% url 'view-token' %}" method="post">
-        {% csrf_token %}
-        <label for="token_address">Token Address:</label>
-        <input type="text" name="token_address" required><br>
-        <label for="encryption_key">Encryption Key:</label>
-        <input type="text" name="encryption_key" required><br>
-        <button type="submit">View Token</button>
-    </form>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">TokenU Project</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'upload-file-form' %}">Subir archivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'view-token-form' %}">Ver token</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de ver token -->
+    <div class="container mt-5">
+        <h1>Ver Token</h1>
+        <form action="{% url 'view-token' %}" method="post" class="mt-4">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="blockchain" class="form-label">Blockchain</label>
+                <select id="blockchain" name="blockchain" class="form-select" required>
+                    <option value="sepolia">Ethereum</option>
+                    <option value="polygon">Polygon</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="token_id" class="form-label">ID del Token</label>
+                <input type="text" id="token_id" name="token_id" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="encryption_key" class="form-label">Clave de Encriptación</label>
+                <div class="input-group">
+                    <input type="password" id="encryption_key" name="encryption_key" class="form-control" required>
+                    <span class="input-group-text" onclick="togglePasswordVisibility()">
+                        <i class="bi bi-eye-slash" id="togglePasswordIcon"></i>
+                    </span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Acceder y descargar archivo</button>
+        </form>
+    </div>
+
+    <script>
+        // Mostrar/Ocultar contraseña
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById('encryption_key');
+            const toggleIcon = document.getElementById('togglePasswordIcon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleIcon.classList.remove('bi-eye-slash');
+                toggleIcon.classList.add('bi-eye');
+            } else {
+                passwordField.type = 'password';
+                toggleIcon.classList.remove('bi-eye');
+                toggleIcon.classList.add('bi-eye-slash');
+            }
+        }
+    </script>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
