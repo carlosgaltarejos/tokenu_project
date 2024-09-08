@@ -1,5 +1,9 @@
 # TokenU Project - Plataforma de Tokenización en Blockchain
 
+Autor: Carlos García Altarejos
+Email: carlosg.altarejos@gmail.com
+Descripción: Este proyecto ha sido desarrollado como parte del Trabajo de Fin de Estudio, en el Grado en Ingeniería Informática de UNIR.
+
 TokenU es una plataforma que permite la tokenización de archivos en la blockchain utilizando Ethereum (Sepolia) y Polygon (Mumbai). El sistema tokeniza archivos cargados por el usuario, encriptándolos y almacenándolos de manera segura en **IPFS** (InterPlanetary File System), y luego crea un **NFT** (Token No Fungible) asociado al archivo. Los usuarios también pueden consultar y descargar archivos previamente tokenizados utilizando su **ID** de token y una clave de encriptación.
 
 ## Funcionalidades principales
